@@ -1,0 +1,30 @@
+{
+  "name": "inmatemailer-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Mharsley2/inmatemailer-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Mharsley2/inmatemailer-backend/issues"
+  },
+  "homepage": "https://gitlab.com/Mharsley2/inmatemailer-backend#readme",
+  "dependencies": {
+    "@hapi/boom": "^7.4.2",
+    "boom": "^7.3.0",
+    "dotenv": "^8.0.0",
+    "fastify": "^2.6.0",
+    "fastify-swagger": "^2.4.0",
+    "mongoose": "^5.6.1",
+    "nodemon": "^1.19.1"
+  }
+}
