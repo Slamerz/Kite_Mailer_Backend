@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   id: mongoose.ObjectId,
-  token: String,
   username: String,
+  email: String,
   password: String,
-  orders: [],
-  contacts: []
+  orders: [mongoose.ObjectId],
+  contacts: [mongoose.ObjectId]
 });
 
 module.exports = mongoose.model("User", userSchema);
