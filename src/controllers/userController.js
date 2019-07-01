@@ -1,6 +1,6 @@
 const boom = require("boom");
 const User  = require("../models/User");
-
+const mongoose = require('mongoose');
 exports.getUsers = async (req, reply) => {
   try {
     return await User.find();
@@ -20,7 +20,14 @@ exports.getSingleUser = async (req, reply) => {
 
 exports.addUser = async (req, reply) => {
   try {
-    const user = new User(req.body);
+    const user = new User({
+      id: mongoose.Types.ObjectId(),
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      orders: [],
+      contacts: []
+    });
     return user.save();
   } catch (err) {
     throw boom.boomify(err);
