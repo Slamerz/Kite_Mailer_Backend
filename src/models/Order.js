@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
   id: mongoose.ObjectId,
-  addresseeId: mongoose.ObjectId,
+  senderId: mongoose.ObjectId,
+  addresseeId: String,
   facilityName: String,
+  status: String,
   addressee: { firstName: String, lastName: String },
   address: String,
   unit: String,
