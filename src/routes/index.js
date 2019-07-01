@@ -1,4 +1,5 @@
 const userController = require("../controllers/userController");
+const orderControllers = require("../controllers/orderController");
 const routes = [
   {
     method: "GET",
@@ -291,6 +292,26 @@ const routes = [
         }
       }
     }
+  },
+  {
+    method: "GET",
+    url: "/api/orders/",
+    handler: orderControllers.getOrders
+  },
+  {
+    method: "GET",
+    url: "/api/orders/:id",
+    handler: orderControllers.getSingleOrder
+  },
+  {
+    method: "POST",
+    url: "/api/orders",
+    handler: orderControllers.addOrder
+  },
+  {
+    method: "DELETE",
+    url: "/api/orders/:id",
+    handler: orderControllers.deleteOrder
   }
 ];
 
