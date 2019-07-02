@@ -264,7 +264,10 @@ const usersRoutes = [
   {
     method: "PUT",
     url: "/api/users/:id",
-    handler: userController.updateUser
+    handler: userController.updateUser,
+    schema: {
+      tags: ["user"]
+    }
   },
   {
     method: "DELETE",
