@@ -10,7 +10,7 @@ const routes = [
     url: "/api/pictures",
     handler: async (req, reply) => {
       try {
-        return await console.log(req.body);
+        reply.send(req.body)
       } catch (err) {
         throw console.error(err);
       }
