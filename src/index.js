@@ -5,7 +5,7 @@ const fastify = require("fastify")({
 const mongoose = require("mongoose");
 const swagger = require("./config/swagger");
 
-const {DB_HOST, DB_USER, DB_PASS} = process.env;
+const {DB_HOST, DB_USER, DB_PASS, PORT} = process.env;
 
 // Register Swagger
 fastify.register(require("fastify-swagger"), swagger.options);
@@ -28,7 +28,7 @@ fastify.get("/", async (request, reply) => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(3000);
+    await fastify.listen(PORT);
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {
