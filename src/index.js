@@ -9,7 +9,7 @@ const {DB_HOST, DB_USER, DB_PASS, PORT, HOST} = process.env;
 
 
 fastify.register(require("fastify-swagger"), swagger.options);
-fastify.register(require("fastify-cors"),{});
+//fastify.register(require("fastify-cors"),{});
 
 mongoose
   .connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/test`)
