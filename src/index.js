@@ -5,11 +5,12 @@ const fastify = require("fastify")({
 const mongoose = require("mongoose");
 const swagger = require("./config/swagger");
 
-const {DB_HOST, DB_USER, DB_PASS, PORT} = process.env;
+const {DB_HOST, DB_USER, DB_PASS, PORT, HOST} = process.env;
 
-// Register Swagger
+
 fastify.register(require("fastify-swagger"), swagger.options);
-// Connect to DB
+fastify.register(require("fastify-cors"),{});
+
 mongoose
   .connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/test`)
   .then(() => console.log("connected to mongodb"))
@@ -20,7 +21,7 @@ const routes = require("./routes");
 routes.forEach((route, index) => {
   fastify.route(route);
 });
-// Declare a route
+
 fastify.get("/", async (request, reply) => {
   return { hello: "world" };
 });
@@ -28,7 +29,7 @@ fastify.get("/", async (request, reply) => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(PORT|| 3000);
+    await fastify.listen(PORT|| 3000, HOST || "localhost");
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {
@@ -36,5 +37,7 @@ const start = async () => {
     process.exit(1);
   }
 };
+
+//nothing
 
 start();
