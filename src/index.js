@@ -28,7 +28,7 @@ fastify.get("/", async (request, reply) => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(PORT);
+    await fastify.listen(PORT|| 3000);
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {
