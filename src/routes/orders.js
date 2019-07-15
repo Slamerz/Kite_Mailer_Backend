@@ -2,7 +2,7 @@ const orderControllers = require("../controllers/orderController");
 const ordersRoutes = [
     {
         method: "GET",
-        url: "/api/orders/",
+        url: "/api/orders",
         handler: orderControllers.getOrders,
         schema: {
             description: "Get a list of all Orders",
