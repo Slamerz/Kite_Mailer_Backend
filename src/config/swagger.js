@@ -12,7 +12,7 @@ exports.options = {
       url: "https://swagger.io",
       description: "Find more info here"
     },
-    host: `${process.env.HOST}:${process.env.PORT}`,
+    host: `inmate-mailer.herokuapp.com:${process.env.PORT}`,
     schemes: ["http"],
     consumes: ["application/json"],
     produces: ["application/json"]

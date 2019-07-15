@@ -5,11 +5,14 @@ const fastify = require("fastify")({
 const mongoose = require("mongoose");
 const swagger = require("./config/swagger");
 
-const {DB_HOST, DB_USER, DB_PASS, PORT, HOST} = process.env;
+const {DB_HOST, DB_USER, DB_PASS, PORT, HOST, AUTH} = process.env;
 
 
 fastify.register(require("fastify-swagger"), swagger.options);
-//fastify.register(require("fastify-cors"),{});
+fastify.register(require("fastify-cors"),{});
+fastify.register(require("fastify-jwt"),{
+  secret: AUTH
+});
 
 mongoose
   .connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/test`)
