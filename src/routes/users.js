@@ -4,7 +4,7 @@ const usersRoutes = [
   {
     method: "GET",
     url: "/api/users",
-    handler: userController.getUsers,
+    handler: userController.getUsers
     // schema: {
     //   description: "get all users",
     //   tags: ["user"],
@@ -162,7 +162,7 @@ const usersRoutes = [
   {
     method: "POST",
     url: "/api/users",
-    handler: userController.addUser,
+    handler: userController.addUser
     // schema: {
     //   description: "Creates a new user",
     //   summary: "Create a new user",
