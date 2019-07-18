@@ -321,8 +321,7 @@ const ordersRoutes = [
             type: "array",
             title: "Orders Photos",
             items: {
-              type: "object",
-              title: "Photo Object"
+              type: "string"
             }
           }
         }
@@ -415,8 +414,8 @@ const ordersRoutes = [
               type: "array",
               title: "Orders Photos",
               items: {
-                type: "object",
-                title: "Photo Object"
+                type: "string",
+                title: "Photo name"
               }
             }
           }

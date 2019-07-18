@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
   address: String,
   unit: String,
   message: String,
-  photos: [{ data: Buffer, contentType: String }]
+  photos: [String]
 });
 
 module.exports = mongoose.model("Order", orderSchema);
