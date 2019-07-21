@@ -5,7 +5,7 @@ const fastify = require("fastify")({
 const mongoose = require("mongoose");
 const swagger = require("./config/swagger");
 const multer = require("fastify-multer");
-const path = require('path');
+const path = require("path");
 const { DB_HOST, DB_USER, DB_PASS, PORT, HOST, AUTH } = process.env;
 
 fastify.register(require("fastify-swagger"), swagger.options);
@@ -14,9 +14,9 @@ fastify.register(require("fastify-jwt"), {
   secret: AUTH
 });
 fastify.register(multer.contentParser);
-fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, 'public'),
-  prefix: '/public/',
+fastify.register(require("fastify-static"), {
+  root: path.join(__dirname, "public")
+  // prefix: "/public/images"
 });
 
 mongoose

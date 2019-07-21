@@ -1,5 +1,6 @@
 const multer = require("fastify-multer");
-const upload = multer({ dest: "src/routes/public/images" });
+const upload = multer({ dest: "src/public/images" });
+const path = require("path");
 
 const pictureRoutes = [
   {
@@ -24,9 +25,9 @@ const pictureRoutes = [
   },
   {
     method: "GET",
-    url:"/api/pictures",
-    handler: async (req, reply) =>{
-      reply.sendFile("73aa1c8f33b75c78c0ff5bb0bcf15b36");
+    url: "/api/pictures",
+    handler: (req, reply) => {
+      reply.sendFile("images/f02efa4ad2603305ed896df81f4986e6");
     }
   }
 ];
