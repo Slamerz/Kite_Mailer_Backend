@@ -1,6 +1,6 @@
 const boom = require("boom");
 const Order = require("../models/Order");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 exports.getOrders = async (req, reply) => {
   try {
     return await Order.find();
@@ -21,6 +21,7 @@ exports.getSingleOrder = async (req, reply) => {
 exports.addOrder = async (req, reply) => {
   try {
     const order = new Order({
+      address: req.body.address,
       id: mongoose.Types.ObjectId(),
       senderId: req.body.senderId,
       facilityName: req.body.facilityName,

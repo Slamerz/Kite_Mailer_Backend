@@ -4,14 +4,19 @@ const fastify = require("fastify")({
 });
 const mongoose = require("mongoose");
 const swagger = require("./config/swagger");
-
-const {DB_HOST, DB_USER, DB_PASS, PORT, HOST, AUTH} = process.env;
-
+const multer = require("fastify-multer");
+const path = require("path");
+const { DB_HOST, DB_USER, DB_PASS, PORT, HOST, AUTH } = process.env;
 
 fastify.register(require("fastify-swagger"), swagger.options);
-fastify.register(require("fastify-cors"),{});
-fastify.register(require("fastify-jwt"),{
+fastify.register(require("fastify-cors"), {});
+fastify.register(require("fastify-jwt"), {
   secret: AUTH
+});
+fastify.register(multer.contentParser);
+fastify.register(require("fastify-static"), {
+  root: path.join(__dirname, "public")
+  // prefix: "/public/images"
 });
 
 mongoose
@@ -32,7 +37,7 @@ fastify.get("/", async (request, reply) => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(PORT|| 3000, HOST || "localhost");
+    await fastify.listen(PORT || 3000, HOST || "localhost");
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {
