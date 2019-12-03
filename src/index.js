@@ -30,14 +30,11 @@ routes.forEach((route, index) => {
   fastify.route(route);
 });
 
-fastify.get("/", async (request, reply) => {
-  return { hello: "world" };
-});
 
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(PORT || 3000, HOST || "localhost");
+    await fastify.listen(PORT || 3000, "0.0.0.0");
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {

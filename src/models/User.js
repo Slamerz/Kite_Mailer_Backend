@@ -6,7 +6,9 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   email: String,
   token: String,
-  orders: [mongoose.ObjectId]
+  messages: [mongoose.ObjectId]
 });
 
 module.exports = mongoose.model("User", userSchema);
+
+

@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
   id: mongoose.ObjectId,
   senderId: mongoose.ObjectId,
-  addresseeId: String,
+  recipientId: String,
   facilityName: String,
   status: String,
-  addressee: { firstName: String, lastName: String },
+  recipient: { firstName: String, lastName: String },
   address: String,
   unit: String,
   message: String,

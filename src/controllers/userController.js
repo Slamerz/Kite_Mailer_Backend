@@ -28,7 +28,7 @@ exports.addUser = async (req, reply) => {
       lastName: lastName,
       email: email,
       token: token,
-      orders: []
+      messages: []
     });
     return user.save();
   } catch (err) {

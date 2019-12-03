@@ -6,9 +6,7 @@ const pictureRoutes = require("./pictures");
 const routes = [
   ...usersRoutes,
   ...ordersRoutes,
-  ...contactRoutes,
-  ...authRoutes,
-  ...pictureRoutes
+  ...authRoutes
 ];
 
 module.exports = routes;
